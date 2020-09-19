@@ -15,4 +15,25 @@ public class GameoverManager : MonoBehaviour
     {
         
     }
+
+    public void text(int x) { 
+        for(int i = 0; i > 配列.count i++){
+            if ($x == 配列[i]){
+                テキスト切り替えアクション
+                contenu;
+            }
+        }
+    }
+
+
+    //実際にテキストを呼び出すアクション
+    public void 麹菌拾ったときのアクション()
+    {
+        text(101);
+}
+public void 納豆菌拾ったときのアクション()
+{
+    text(102);
+}
+
 }

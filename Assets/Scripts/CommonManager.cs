@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CommonManager : MonoBehaviour
 {
@@ -8,16 +9,10 @@ public class CommonManager : MonoBehaviour
     //・タイトルへ戻るボタン
     //・メッセージ（メッセージウィンドウ）
 
-
-    // Start is called before the first frame update
-    void Start()
+    //タイトルへ戻る
+    public void OnTitleBackButton()
     {
-        
+        SceneManager.LoadScene("SceneTitle");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

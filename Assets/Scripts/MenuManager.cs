@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject MenuOFF;
+    public GameObject MenuON;
+
+    //
+    public void OnMenuButtonOFF()
     {
-        
+        MenuON.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    //
+    public void OnMenuButtonON()
     {
-        
+        MenuON.SetActive(false);
     }
 }
