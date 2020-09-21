@@ -18,22 +18,24 @@ public class FlagManager : MonoBehaviour
     /*
      * 別のscriptで使用する方法
      * 呼び出し側のscriptと、このscriptを同一のオブジェクトにアタッチし、
-     * 以下のコードを記述
+     * 呼び出し側に以下のコードを記述（具体例はPlayerManagerを参照）
+     * 
      * private FlagManager flagManager;    // FlagManagerを入れる変数、class直下に記述
      * flagManager = GetComponent<FlagManager>();    // FlagManagerを取得、startメソッド内に記述
      * 
      * 以下は必要な個所へ
-     * flagManager.itemFlags.Add("key2", 0);    // FlagManagerのDictionary「itemFlags」に値を追加
-     * flagManager.itemFlags["key2"] = 222;    // FlagManagerのDictionary「itemFlags」の任意の値を変更
-     * Debug.Log(flagManager.itemFlags["key2"]);    // FlagManagerのDictionary「itemFlags」の任意の値をDebug.Log表示
+     * flagManager.itemFlags.Add("key2", 0);    // FlagManagerのDictionary「itemFlags」に、("フラグ名", 数値)の形式で、任意の値を追加
+     * flagManager.itemFlags["key2"] = 222;    // FlagManagerのDictionary「itemFlags」のフラグ名に対応する数値を任意の値を変更
+     * Debug.Log(flagManager.itemFlags["key2"]);    // FlagManagerのDictionary「itemFlags」のフラグ名に紐づく数値をDebug.Log表示
      * 
-     * // キーと要素の列挙
+     * // フラグ名と数値の列挙
      * foreach (KeyValuePair<string, int> pair in flagManager.itemFlags) {
      * Debug.Log (pair.Key + " : " + pair.Value);
      * }
             
         どこからでも追加変更が可能なようなので、ここをいじる必要はなさそうです。
         完成時にキーと要素をまとめて、値クリアのメソッドに追加するくらいで良いと思われ。
+        現時点ではitemFlagsのみですが、必要に応じてDictionaryを追加しようと思います。
         値クリアはゲームクリア時に使う？
          
     */
