@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerManager : MonoBehaviour
 {
-    private FlagManager flagManager;    // FlagManagerを入れる変数、class直下に記述
-
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private float horizontalInput, verticalInput;
@@ -24,10 +23,6 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        flagManager = GetComponent<FlagManager>();    // FlagManagerを取得、startメソッド内に記述
-        flagManager.itemFlags.Add("key2", 0);    // FlagManagerのDictionary「itemFlags」に値を追加
-        flagManager.itemFlags["key2"] = 222;    // FlagManagerのDictionary「itemFlags」の任意の値を変更
-        Debug.Log(flagManager.itemFlags["key2"]);    // FlagManagerのDictionary「itemFlags」の任意の値をDebug.Log表示
     }
 
     // Update is called once per frame
@@ -46,4 +41,12 @@ public class PlayerManager : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
+
+
+    public void DoorClick()
+    {
+        Debug.Log("DoorClick");
+        SceneManager.LoadScene("test");
+    }
+
 }
