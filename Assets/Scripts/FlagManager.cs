@@ -11,11 +11,11 @@ public class FlagManager : MonoBehaviour
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<FlagManager>();
+                instance = FindObjectOfType<FlagManager>(); // Component「FlagManager」を持っているGameObjectを検索
 
                 if (instance == null)
                 {
-                    instance = new GameObject("FlagManager").AddComponent<FlagManager>();
+                    instance = new GameObject("FlagManager").AddComponent<FlagManager>(); // GameObject「FlagManager」に、Component「FlagManager」を追加
                 }
             }
             return instance;
@@ -24,22 +24,24 @@ public class FlagManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == this)
+        if (Instance == this)    // 変数instanceにFlagManagerが入っていたら
         {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);    // GameObjectを破棄しない
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject);    // GameObjectを破棄
         }
     }
 
-    public bool[] flags = new bool[128];
+    public bool[] flags = new bool[128];    // 配列「flags」にbool型で要素数を指定
+    public int[] ItemFlags ;    // 配列「flags」にbool型で要素数を指定
+    public Dictionary<string, int> itemFlags = new Dictionary<string, int>();   // Dictionaryの宣言
 
-    [ContextMenu("ResetFlags")]
+    [ContextMenu("ResetFlags")]    // inspector上で右クリックした際のメニューを追加
     public void ResetFlags()
     {
-        flags = new bool[flags.Length];
+        flags = new bool[flags.Length];    // 現在の要素数と同じ数の要素を指定し値をクリア
     }
 
 
