@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;
+using UnityEngine.SceneManagement;
+
 public class Stage0Manager : MonoBehaviour
 {
     //研究室
@@ -16,4 +19,20 @@ public class Stage0Manager : MonoBehaviour
     {
         
     }
+    public void Stage1_DoorClick()
+    {
+        Debug.Log("Stage1_DoorClick");
+        SceneManager.LoadScene("SceneStage1");
+    }
+
+    public void WashingMachineClick()
+    {
+        Debug.Log("WashingMachineClick");
+    }
+
+    public void VendingMachineClick()
+    {
+        Debug.Log("VendingMachineClick");
+    }
+
 }
