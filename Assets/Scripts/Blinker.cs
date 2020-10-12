@@ -40,7 +40,6 @@ public class Blinker : MonoBehaviour
 
             if (colorChange >= 1.0f)
             {
-                colorChange = 1.0f;
                 changeFlag = true;
             }
         }
@@ -51,7 +50,6 @@ public class Blinker : MonoBehaviour
 
             if (colorChange <= 0.0f)
             {
-                colorChange = 0.0f;
                 changeFlag = false;
             }
         }
