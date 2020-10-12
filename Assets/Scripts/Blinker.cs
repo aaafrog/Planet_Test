@@ -6,10 +6,12 @@ using UnityEngine;
 public class Blinker : MonoBehaviour
 {
     // 点滅の時間・色を変更する場合はここを変更
-    private static float FADE_TIME = 10.0f;   // フェードしたい時間
-    private static float COLOR_R_MAX = 0.1f;    // RGBのR値の最大値
-    private static float COLOR_G_MAX = 0.2f;    // RGBのG値の最大値
-    private static float COLOR_B_MAX = 0.3f;    // RGBのB値の最大値
+    private static float FADE_TIME = 10.0f;   // フェードしたい時間を指定
+    private static float COLOR_R_MAX = 0.1f;    // RGBのR値の最大値を指定
+    private static float COLOR_G_MAX = 0.2f;    // RGBのG値の最大値を指定
+    private static float COLOR_B_MAX = 0.3f;    // RGBのB値の最大値を指定
+    // 点滅の時間・色を変更する場合はここを変更
+
 
     private MeshRenderer r;    // MeshRendererコンポーネント取得用
 
@@ -34,13 +36,7 @@ public class Blinker : MonoBehaviour
         if (changeFlag == false)
         {
             colorChange += Time.deltaTime / FADE_TIME;    // フレーム間で経過した時間をフェードしたい時間で割り、時間経過の割合を出して、colorChangeに加算？
-            colorR = COLOR_R_MAX * colorChange;    // R値の最大値に時間経過をかけて、R値の最大値までの割合を出す
-            colorG = COLOR_G_MAX * colorChange;    // G値の最大値に時間経過をかけて、G値の最大値までの割合を出す
-            colorB = COLOR_B_MAX * colorChange;    // B値の最大値に時間経過をかけて、B値の最大値までの割合を出す
-
-            Color emissionColor = new Color(colorR, colorG, colorB, 1.0f);    // RGB値の最大値までの割合を格納したColor
-            r.material.SetColor("_EmissionColor", emissionColor);    // マテリアルのEmissionColorに色をColorを渡す
-            //Debug.Log(colorChange);
+            ChangeColor();
 
             if (colorChange >= 1.0f)
             {
@@ -51,14 +47,8 @@ public class Blinker : MonoBehaviour
         else if (changeFlag == true)
         {
             colorChange -= Time.deltaTime / FADE_TIME;
-            colorR = COLOR_R_MAX * colorChange;
-            colorG = COLOR_G_MAX * colorChange;
-            colorB = COLOR_B_MAX * colorChange;
+            ChangeColor();
 
-            Color emissionColor = new Color(colorR, colorG, colorB, 1.0f);
-            r.material.SetColor("_EmissionColor", emissionColor);
-
-            //Debug.Log(colorChange);
             if (colorChange <= 0.0f)
             {
                 colorChange = 0.0f;
@@ -66,4 +56,16 @@ public class Blinker : MonoBehaviour
             }
         }
     }
+
+    void ChangeColor()  // 時間経過を受け取り色を変更する
+    {
+        colorR = COLOR_R_MAX * colorChange;    // R値の最大値に時間経過をかけて、R値の最大値までの割合を出す
+        colorG = COLOR_G_MAX * colorChange;    // G値の最大値に時間経過をかけて、G値の最大値までの割合を出す
+        colorB = COLOR_B_MAX * colorChange;    // B値の最大値に時間経過をかけて、B値の最大値までの割合を出す
+
+        Color emissionColor = new Color(colorR, colorG, colorB, 1.0f);    // RGB値の最大値までの割合を格納したColor
+        r.material.SetColor("_EmissionColor", emissionColor);    // マテリアルのEmissionColorに色をColorを渡す
+        //Debug.Log(colorChange);
+    }
+
 }
