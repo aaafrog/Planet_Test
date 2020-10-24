@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FlagManager : MonoBehaviour
 {
-    private static FlagManager instance = null;
-    public static FlagManager Instance
+    private static FlagManager instance = null; // シングルトン唯一のインスタンスを宣言
+    public static FlagManager Instance  //  インスタンス（instance）を、プロパティ（Instance）でのみ取得させるプロパティ
     {
         get
         {
@@ -22,7 +22,7 @@ public class FlagManager : MonoBehaviour
         }
     }
 
-    void Awake()
+    void Awake()    // シーン間でもインスタンスのオブジェクトが1つになるようにする
     {
         if (Instance == this)    // 変数instanceにFlagManagerが入っていたら
         {
@@ -42,22 +42,5 @@ public class FlagManager : MonoBehaviour
     public void ResetFlags()
     {
         flags = new bool[flags.Length];    // 現在の要素数と同じ数の要素を指定し値をクリア
-    }
-
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
