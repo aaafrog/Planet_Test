@@ -35,7 +35,7 @@ public class FlagManager : MonoBehaviour
     }
 
     public bool[] flags = new bool[128];    // 配列「flags」にbool型で要素数を指定
-    public int[] ItemFlags ;    // 配列「flags」にbool型で要素数を指定
+    public int[] ItemFlags = new int[10];
     public Dictionary<string, int> itemFlags = new Dictionary<string, int>();   // Dictionaryの宣言
 
     [ContextMenu("ResetFlags")]    // inspector上で右クリックした際のメニューを追加
