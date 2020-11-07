@@ -11,7 +11,8 @@ public class Stage1Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SceneManager.LoadScene("ControllerItem", LoadSceneMode.Additive);
+        SceneManager.LoadScene("ControllerMenu", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame
@@ -37,6 +38,11 @@ public class Stage1Manager : MonoBehaviour
     }
 
     public void ParkingMachineClick()
+    {
+        Debug.Log("ParkingMachineClick");
+    }
+
+    public void PotClick()
     {
         Debug.Log("ParkingMachineClick");
     }
