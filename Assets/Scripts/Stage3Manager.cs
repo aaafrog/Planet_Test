@@ -17,6 +17,7 @@ public class Stage3Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //別のシーンを読み込むよ3
+
     }
 }
