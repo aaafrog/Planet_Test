@@ -9,6 +9,7 @@ public class Stage3Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //別のシーンを読み込むよ
         SceneManager.LoadScene("ControllerItem", LoadSceneMode.Additive);
         SceneManager.LoadScene("ControllerMenu", LoadSceneMode.Additive);
     }
