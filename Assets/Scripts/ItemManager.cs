@@ -57,7 +57,7 @@ public class ItemManager : MonoBehaviour
 
         ItemBoxManager.instance.SetItem(item);
 
-        if (index != 0 || index != 1 || index != 5 || index != 6)
+        if (index != 0 && index != 1 && index != 5 && index != 6)
         {
             gameObject.SetActive(false);
         }
