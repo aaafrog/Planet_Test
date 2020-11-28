@@ -56,7 +56,12 @@ public class ItemManager : MonoBehaviour
         int index = (int)item;
 
         ItemBoxManager.instance.SetItem(item);
-        gameObject.SetActive(false);
+
+        if (index != 0 || index != 1 || index != 5 || index != 6)
+        {
+            gameObject.SetActive(false);
+        }
+        
         Debug.Log(item + "を取得");
 
         FlagManager.Instance.ItemFlags[index] = 1;
