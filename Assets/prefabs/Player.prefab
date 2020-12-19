@@ -198,4 +198,4 @@ MonoBehaviour:
   speed: 10
   jumpSpeed: 8
   gravity: 9.8
-  rotateSpeed: 3
+  rotateSpeed: 4
