@@ -10,6 +10,7 @@ public class Stage3Manager : MonoBehaviour
     void Start()
     {
         //別のシーンを読み込むよ
+        //別のシーンを読み込むよ２
         SceneManager.LoadScene("ControllerItem", LoadSceneMode.Additive);
         SceneManager.LoadScene("ControllerMenu", LoadSceneMode.Additive);
     }
