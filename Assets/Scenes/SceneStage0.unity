@@ -991,7 +991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441840, guid: dae7d646a7bef964da25da85bffd93af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.24
+      value: 18.52
       objectReference: {fileID: 0}
     - target: {fileID: 441840, guid: dae7d646a7bef964da25da85bffd93af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1672,7 +1672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Washing_Machine_Button: {fileID: 230357227}
-  itemManager: {fileID: 0}
 --- !u!4 &805174274
 Transform:
   m_ObjectHideFlags: 0
