@@ -24,6 +24,7 @@ public class ItemManager : MonoBehaviour
         item5,  // 味噌汁
         item6,  // アラ汁
         item7,  // 魚の骨
+        item9999 = 9999,  // 欠番
     }
     public Item item;
 

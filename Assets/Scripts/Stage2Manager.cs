@@ -37,9 +37,9 @@ public class Stage2Manager : MonoBehaviour
     {
         //アラ汁フラグテスト
         //アラ汁のアイテムを選択したらに修正
-        FlagManager.Instance.ItemFlags[6] = 1;
+        //FlagManager.Instance.ItemFlags[6] = 1;
 
-        if (FlagManager.Instance.ItemFlags[6] == 1)
+        if (FlagManager.Instance.ItemFlags[6] == 2)
         {
             // アラ汁を持っている
             Debug.Log("アラ汁を持っている");
@@ -51,10 +51,11 @@ public class Stage2Manager : MonoBehaviour
             Debug.Log("アラ汁を持っていない");
         }
     }
-    public void OnClickSardine()
+/*    public void OnClickSardine()
     {
         ItemManager.instance.OnGetItem();
         Debug.Log("魚の骨を手に入れた！");
+        Sardine.SetActive(false);
 
         //  イワシを食べる
         Debug.Log("イワシを食べる");
@@ -65,12 +66,6 @@ public class Stage2Manager : MonoBehaviour
         //  魚の骨
         Debug.Log("イワシを食べる");
         FlagManager.Instance.ItemFlags[7] = 1;
-    }
+    }*/
 
-
-
-    public void test()
-    {
-        Debug.Log("ああああああああああああああ");
-    }
 }

@@ -29,13 +29,14 @@ public class ItemBoxUseManager : MonoBehaviour
 
         if (itemFlg == 1)
         {
-            Debug.Log("フラグは"+itemFlg);
+
             FlagManager.Instance.ItemFlags[index] = 2;
+            Debug.Log("フラグは" + itemFlg);
         }
         else if (itemFlg == 2)
         {
-            Debug.Log("フラグは" + itemFlg);
             FlagManager.Instance.ItemFlags[index] = 1;
+            Debug.Log("フラグは" + itemFlg);
         }
 
     }
