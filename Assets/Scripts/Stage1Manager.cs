@@ -70,7 +70,7 @@ public class Stage1Manager : MonoBehaviour
             Debug.Log("セットされてない");
         }
 
-        Washing_Machine_Button.SetActive(false);
+        Parking_Machine_Button.SetActive(false);
     }
 
 
