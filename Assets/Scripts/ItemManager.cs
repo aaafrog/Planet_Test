@@ -58,6 +58,7 @@ public class ItemManager : MonoBehaviour
 
         ItemBoxManager.instance.SetItem(item);
 
+        // 取ったら消えるアイテムだけ消す
         if (index != 0 && index != 1 && index != 5 && index != 6)
         {
             gameObject.SetActive(false);
@@ -73,6 +74,10 @@ public class ItemManager : MonoBehaviour
         ItemImageManager.instance.ItemImage[index].SetActive(true);
 
     }
+
+
+
+
 
 
     //アイテム入手時の表示

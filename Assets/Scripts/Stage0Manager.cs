@@ -7,8 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class Stage0Manager : MonoBehaviour
 {
-    public GameObject Washing_Machine_Button;
+    public GameObject Miso_Button;
+    public GameObject Natto_Button;
+    public GameObject NoSet_Button;
 
+    private int NoSetFlag;
 
     //研究室
     // Start is called before the first frame update
@@ -32,40 +35,51 @@ public class Stage0Manager : MonoBehaviour
     // 発酵促進器クリック時
     public void WashingMachineClick()
     {
-        Washing_Machine_Button.SetActive(true);
+        int sio = FlagManager.Instance.ItemFlags[0];
+        int daizu = FlagManager.Instance.ItemFlags[1];
+        int kouji = FlagManager.Instance.ItemFlags[2];
+        int natto = FlagManager.Instance.ItemFlags[3];
+
+
+        if ( sio == 2 && daizu == 2 && kouji == 2 )// アイテムが麹菌・大豆・塩の場合
+        {
+            Miso_Button.SetActive(true);
+            Debug.Log("みそ");
+        }
+        else if ( sio == 2 && daizu == 2 && natto == 2)// アイテムが納豆菌・大豆・塩の場合
+        {
+            Natto_Button.SetActive(true);            
+            Debug.Log("納豆");
+        }
+        else // アイテムが３つセットされていない
+        {
+            NoSetFlag = 1;
+            NoSet_Button.SetActive(true);
+            Debug.Log("セットされてない");
+        }
 
         // アイテムを選択
         Debug.Log("アイテムを選択");
 
     }
 
-    // 促進器を起動させる
-    public void StartClick()
-    {
-        int sio = FlagManager.Instance.ItemFlags[0];
-        int daizu = FlagManager.Instance.ItemFlags[1];
-        int kouji = FlagManager.Instance.ItemFlags[2];
-        int natto = FlagManager.Instance.ItemFlags[3];
 
-        
-        if (kouji == 2 || sio == 2 || daizu == 2)// アイテムが麹菌・大豆・塩の場合
+    // ボタンクリック時
+    public void MachineStart()
+    {
+        if (NoSetFlag != 1)
         {
             ItemManager.instance.OnGetItem();
-            Debug.Log("みそ");
-        }
-        else if (natto == 2 || sio == 2 || daizu == 2)// アイテムが納豆菌・大豆・塩の場合
-        {
-            Debug.Log("納豆");
-        }
-        else // アイテムが３つセットされていない
-        {
-            Debug.Log("セットされてない");
         }
 
-        Washing_Machine_Button.SetActive(false);
+        Miso_Button.SetActive(false);
+        Natto_Button.SetActive(false);
+        NoSet_Button.SetActive(false);
+
     }
 
-public void VendingMachineClick()
+
+    public void VendingMachineClick()
     {
         Debug.Log("VendingMachineClick");
     }
