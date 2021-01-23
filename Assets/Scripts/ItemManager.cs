@@ -6,6 +6,43 @@ using UnityEngine.SceneManagement;
 public class ItemManager : MonoBehaviour
 {
 
+    public GameObject Message_Panel;
+
+    //*******************************************************************
+    //                表示するメッセージ
+    //*******************************************************************
+    public CommonManager commonManager;
+
+    // 書くスピード(短いほど早い)
+    public float writeSpeed = 0.2f;
+
+    // テキストを書くメソッド
+    public void Write(string s)
+    {
+        //毎回、書くスピードを 0.2 に戻す------<戻したくない場合はここを消す>
+        writeSpeed = 0.2f;
+
+        StartCoroutine(IEWrite(s));
+    }
+
+    // 書くためのコルーチン
+    IEnumerator IEWrite(string s)
+    {
+        //書いている途中の状態にする
+        //isWriting = true;
+
+        //渡されたstringの文字の数だけループ
+        for (int index = 0; index < s.Length; index++)
+        {
+            //テキストにi番目の文字を付け足して表示する
+            //text.text += s.Substring(index, 1);
+            //次の文字を表示するまで少し待つ
+            yield return new WaitForSeconds(writeSpeed);
+        }
+        //書いている途中の状態を解除する
+        //isWriting = false;
+    }
+
     //インスタンス化
     public static ItemManager instance;
     private void Awake()
@@ -51,6 +88,18 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    //アイテムメッセージ表示
+    public void ItemMessage()
+    {
+        Debug.Log("AAA");
+        int index = (int)item + 8;
+        Debug.Log(index);
+        Debug.Log(commonManager.testtext);
+        //Write(commonManager.Scenarios[index][1]);
+
+    }
+
+
     //アイテムクリック時
     public void OnGetItem()
     {
@@ -70,6 +119,14 @@ public class ItemManager : MonoBehaviour
         Debug.Log(FlagManager.Instance.ItemFlags[index]);
 
         //ItemImage表示
+        ItemImageManager.instance.ItemImageBg.SetActive(true);
+        ItemImageManager.instance.ItemImage[index].SetActive(true);
+
+        //メッセージパネルアクティブ
+        //Message_Panel.SetActive(true);
+
+        //ItemImage表示
+        ItemMessage();
         ItemImageManager.instance.ItemImageBg.SetActive(true);
         ItemImageManager.instance.ItemImage[index].SetActive(true);
 
